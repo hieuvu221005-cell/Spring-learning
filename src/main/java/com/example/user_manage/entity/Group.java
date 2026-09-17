@@ -20,6 +20,7 @@ import java.util.List;
 public class Group implements Serializable {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "group_name")

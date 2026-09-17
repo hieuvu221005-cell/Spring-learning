@@ -11,19 +11,6 @@ import java.util.List;
 
 public interface UserRepo extends JpaRepository<User,Long> {
 
-    List<User> findAllByAgeLessThan(int age);
-    //SELECT * FROM user WHERE age < ?
-    List<User> findAllByUserNameLike(String firstName);
-    //SELECT * FROM user WHERE user_name LIKE ?
-    List<User> findByCreateDateBefore(LocalDate createDate);
-    //SELECT * FROM user WHERE create_date < ?
-    List<User> findByFirst_nameIgnoreCase(String firstName);
-    //SELECT * FROM user WHERE LOWER(first_name) = LOWER(?)
-    List<User> findByAgeIn(List<Integer> age);
-    //SELECT * FROM user WHERE age IN (2, 3, 4, 5)
-    List<User> findByCreateDateAfter(LocalDate createDate);
-    //SELECT * FROM user WHERE create_date > ?
-
     @Modifying
     @Query("update User u set u.firstName = 'Nguyen' where u.firstName like '%Vu%'")
     void updateUserByFirstName();
